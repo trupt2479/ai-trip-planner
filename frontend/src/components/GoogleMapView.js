@@ -7,9 +7,11 @@ const containerStyle = {
 };
 
 function GoogleMapView() {
+  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyDSserr3J9rJRlAPkHZK5s_7l9jbDuczvc"
+      googleMapsApiKey={apiKey}
       libraries={['places']}
     >
       <GoogleMap
