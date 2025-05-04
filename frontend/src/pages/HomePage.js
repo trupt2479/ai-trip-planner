@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TravelForm from '../components/TravelForm';
+import TravelResults from '../components/TravelResults';
+import GoogleMapView from '../components/GoogleMapView';
 
 function HomePage() {
+  const [form, setForm] = useState(null);
+
   return (
-    <div>
-      <h2>Welcome to AI Trip Planner</h2>
-      <p>Start planning your next adventure with AI-powered suggestions and interactive maps!</p>
+    <div className="home-page">
+      <h1>AI Trip Planner</h1>
+      <TravelForm onSubmit={setForm} />
+      <GoogleMapView />
+      {form && <TravelResults form={form} />}
     </div>
   );
 }
