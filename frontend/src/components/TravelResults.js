@@ -11,7 +11,7 @@ function TravelResults({ form }) {
   // Fetch round-trip driving distance
   useEffect(() => {
     if (form.mode === 'car' && form.start && form.end) {
-      const apiKey = "AIzaSyDSserr3J9rJRlAPkHZK5s_7l9jbDuczvc";
+      const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
       fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${encodeURIComponent(form.start)}&destination=${encodeURIComponent(form.end)}&key=${apiKey}`)
         .then(res => res.json())
         .then(data => {
